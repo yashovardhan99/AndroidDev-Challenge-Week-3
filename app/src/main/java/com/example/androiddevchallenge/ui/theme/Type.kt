@@ -17,27 +17,58 @@ package com.example.androiddevchallenge.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
+import com.example.androiddevchallenge.R
+
+val KulimParkFamily = FontFamily(
+    Font(R.font.kulim_park),
+    Font(R.font.kulim_park_light, weight = FontWeight.Light)
+)
+val LatoFamily = FontFamily(
+    Font(R.font.lato),
+    Font(R.font.lato_bold, weight = FontWeight.Bold)
+)
 
 // Set of Material typography styles to start with
 val typography = Typography(
-    body1 = TextStyle(
-        fontFamily = FontFamily.Default,
+    h1 = TextStyle(
+        fontFamily = KulimParkFamily,
+        fontSize = 28.sp,
+        fontWeight = FontWeight.Light,
+        letterSpacing = 1.15.em
+    ),
+    h2 = TextStyle(
+        fontFamily = KulimParkFamily,
+        fontSize = 15.sp,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
-    )
-        /* Other default text styles to override
+        letterSpacing = 1.15.em,
+    ),
+    h3 = TextStyle(
+        fontFamily = LatoFamily,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold,
+        letterSpacing = 0.em
+    ),
+    body1 = TextStyle(
+        fontFamily = LatoFamily,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Normal,
+        letterSpacing = 0.em
+    ),
     button = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
-        fontSize = 14.sp
+        fontFamily = LatoFamily,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold,
+        letterSpacing = 1.15.em
     ),
     caption = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = KulimParkFamily,
+        fontSize = 12.sp,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
+        letterSpacing = 1.15.em
     )
-    */
 )

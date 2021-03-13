@@ -34,18 +34,22 @@ import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import java.util.Locale
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -53,7 +57,9 @@ fun LoginScreen() {
     ) {
         Image(
             painter = painterResource(id = R.drawable.ic_login),
-            contentDescription = "Background"
+            contentDescription = "Background",
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.FillBounds
         )
         Column(
             modifier = Modifier
@@ -103,7 +109,9 @@ fun LoginScreen() {
                     start = str.indexOf("Sign up"), end = str.lastIndex
                 )
             }.toAnnotatedString()
-            LoginButton()
+            LoginButton {
+                navController.navigate("home")
+            }
             Text(
                 text = string,
                 style = MaterialTheme.typography.body1,
@@ -119,7 +127,7 @@ fun LoginScreen() {
 fun LoginPreview() {
     MyTheme(darkTheme = false) {
         Surface() {
-            LoginScreen()
+            LoginScreen(rememberNavController())
         }
     }
 }
@@ -129,7 +137,7 @@ fun LoginPreview() {
 fun LoginPreviewDark() {
     MyTheme(darkTheme = true) {
         Surface() {
-            LoginScreen()
+            LoginScreen(rememberNavController())
         }
     }
 }

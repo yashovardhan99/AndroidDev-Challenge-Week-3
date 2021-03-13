@@ -35,6 +35,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import java.util.Locale
@@ -57,9 +60,9 @@ fun SignUpButton() {
 }
 
 @Composable
-fun LoginButton() {
+fun LoginButton(onClick: () -> Unit) {
     Button(
-        onClick = { },
+        onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
             .height(72.dp),
@@ -74,7 +77,7 @@ fun LoginButton() {
 }
 
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(navController: NavHostController) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
@@ -94,7 +97,9 @@ fun WelcomeScreen() {
             Spacer(modifier = Modifier.height(32.dp))
             SignUpButton()
             Spacer(modifier = Modifier.height(8.dp))
-            LoginButton()
+            LoginButton {
+                navController.navigate("login")
+            }
         }
         Image(
             painter = painterResource(id = R.drawable.ic_welcome),
@@ -110,7 +115,7 @@ fun WelcomeScreen() {
 fun WelcomePreview() {
     MyTheme(darkTheme = false) {
         Surface() {
-            WelcomeScreen()
+            WelcomeScreen(rememberNavController())
         }
     }
 }
@@ -120,7 +125,7 @@ fun WelcomePreview() {
 fun WelcomePreviewDark() {
     MyTheme(darkTheme = true) {
         Surface() {
-            WelcomeScreen()
+            WelcomeScreen(rememberNavController())
         }
     }
 }

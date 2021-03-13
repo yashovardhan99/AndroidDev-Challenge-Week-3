@@ -15,13 +15,18 @@
  */
 package com.example.androiddevchallenge.ui.layouts
 
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.FabPosition
+import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Spa
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -39,8 +44,25 @@ fun HomeScreen() {
     val items = listOf(Screen.Home, Screen.Profile)
     val internalNavController = rememberNavController()
     Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = { },
+                shape = CircleShape,
+                backgroundColor = MaterialTheme.colors.onBackground,
+                contentColor = MaterialTheme.colors.background,
+            ) {
+                Icon(
+                    imageVector = Icons.Default.PlayArrow, contentDescription = "Play",
+                )
+            }
+        },
+        floatingActionButtonPosition = FabPosition.Center,
+        isFloatingActionButtonDocked = true,
         bottomBar = {
-            BottomNavigation {
+            BottomNavigation(
+                backgroundColor = MaterialTheme.colors.background,
+                contentColor = MaterialTheme.colors.onBackground
+            ) {
                 val navBackStackEntry by internalNavController.currentBackStackEntryAsState()
                 val currentRoute = navBackStackEntry?.arguments?.getString(KEY_ROUTE)
                 items.forEach { screen ->

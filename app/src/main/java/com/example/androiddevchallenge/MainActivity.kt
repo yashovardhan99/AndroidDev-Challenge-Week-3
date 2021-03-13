@@ -23,15 +23,29 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.ui.layouts.HomeScreen
+import com.example.androiddevchallenge.ui.layouts.LoginScreen
 import com.example.androiddevchallenge.ui.layouts.WelcomeScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             MyTheme {
-                WelcomeScreen()
+                val navController = rememberNavController()
+                Surface(color = MaterialTheme.colors.background) {
+                    NavHost(navController = navController, startDestination = "welcome") {
+                        composable("welcome") { WelcomeScreen(navController) }
+                        composable("login") { LoginScreen(navController) }
+                        composable("home") { HomeScreen() }
+                    }
+                }
             }
         }
     }

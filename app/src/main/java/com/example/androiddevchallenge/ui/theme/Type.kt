@@ -39,13 +39,13 @@ val typography = Typography(
         fontFamily = KulimParkFamily,
         fontSize = 28.sp,
         fontWeight = FontWeight.Light,
-        letterSpacing = 1.15.em
+        letterSpacing = 0.115.em
     ),
     h2 = TextStyle(
         fontFamily = KulimParkFamily,
         fontSize = 15.sp,
         fontWeight = FontWeight.Normal,
-        letterSpacing = 1.15.em,
+        letterSpacing = 0.115.em,
     ),
     h3 = TextStyle(
         fontFamily = LatoFamily,
@@ -63,12 +63,12 @@ val typography = Typography(
         fontFamily = LatoFamily,
         fontSize = 14.sp,
         fontWeight = FontWeight.Bold,
-        letterSpacing = 1.15.em
+        letterSpacing = 0.115.em
     ),
     caption = TextStyle(
         fontFamily = KulimParkFamily,
         fontSize = 12.sp,
         fontWeight = FontWeight.Normal,
-        letterSpacing = 1.15.em
+        letterSpacing = 0.115.em
     )
 )

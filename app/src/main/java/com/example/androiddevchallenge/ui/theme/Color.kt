@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2021 Yashovardhan Dhanania
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,13 +17,13 @@ package com.example.androiddevchallenge.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val gray900 = Color(0x333333)
-val rust600 = Color(0x886363)
-val taupe100 = Color(0xF0EAE2)
-val white = Color.White
+val gray900 = Color(0xFF333333)
+val rust600 = Color(0xFF886363)
+val taupe100 = Color(0xFFF0EAE2)
+val white = Color(0xFFFFFFFF)
 val white800 = white.copy(alpha = 0.8f)
 val white850 = white.copy(alpha = 0.85f)
-val taupe800 = Color(0x655454)
+val taupe800 = Color(0xFF655454)
 val gray800 = gray900.copy(alpha = 0.8f)
-val rust300 = Color(0xE1AFAF)
+val rust300 = Color(0xFFE1AFAF)
 val white150 = white.copy(alpha = 0.15f)
